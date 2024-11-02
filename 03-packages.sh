@@ -70,7 +70,6 @@ AddPackage noto-fonts-emoji # Google Noto emoji fonts
 AddPackage noto-fonts-extra # Google Noto TTF fonts - additional variants
 AddPackage opendoas # Run commands as super user or another user
 AddPackage pacman-offline # offline system update with pacman
-AddPackage pamac-aur # A Gtk frontend, Package Manager based on libalpm with AUR and Appstream support
 AddPackage plymouth # Graphical boot splash screen
 AddPackage power-profiles-daemon # Makes power profiles handling available over D-Bus
 AddPackage python-simplejson # Simple, fast and extensible JSON decoder/encoder
@@ -99,3 +98,4 @@ AddPackage pipewire-v4l2 # Low-latency audio/video router and processor - V4L2 i
 AddPackage pipewire-zeroconf # Low-latency audio/video router and processor - Zeroconf support
 AddPackage rsync # A fast and versatile file copying tool for remote and local files
 AddPackage zram-generator # Systemd unit generator for zram devices
+AddPackage archlinux-appstream-data
