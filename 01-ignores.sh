@@ -20,7 +20,6 @@ IGNORE_CFG=(
 	printcap
 	shells
 	fstab
-	pamac.conf
 	ssl
 	colord
 	fonts/conf.d
