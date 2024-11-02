@@ -6,6 +6,9 @@ IgnorePath '/etc/machine-info'
 IgnorePath '/etc/dconf'
 IgnorePath '/etc/localtime'
 IgnorePath '/etc/cups'
+IgnorePath '/etc/cups/printers.conf'
+IgnorePath '/etc/cups/subscriptions.conf'
+IgnorePath '/etc/cups/classes.conf'
 
 # Generated automatically
 IGNORE_CFG=(
@@ -25,7 +28,8 @@ IGNORE_CFG=(
 	ca-certificates
 	pacman.d/{mirrorlist,gnupg}
 	'hostname'
-	'.*'
+	'.updated'
+	'.pwd.lock'
 )
 for cfg in ${IGNORE_CFG[@]}; do
 	IgnorePath "/etc/$cfg"
@@ -44,7 +48,7 @@ IgnorePath '/var/db'
 IgnorePath '/usr/local/share/themes/default-pure/gnome-shell'
 
 # Secret
-for passwd in group{,-} {g,}shadow{,-} passwd{,-} sub{gid,uid}{,-} ssh; do
+for passwd in group{,-} {g,}shadow{,-} passwd{,-} sub{gid,uid}{,-} samba/systemd ssh; do
 	IgnorePath "/etc/$passwd"
 done
 

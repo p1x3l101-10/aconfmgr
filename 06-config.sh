@@ -9,3 +9,6 @@ echo "kernel.sysrq = 1" > "$(CreateFile /etc/sysctl.d/99-sysrq.conf)"
 
 f="$(GetPackageOriginalFile filesystem /etc/nsswitch.conf)"
 sed -i '/^hosts:/ s/$/ mdns_minimal [NOTFOUND=return]/' "$f" # Appends to hosts list
+
+SetFileProperty /etc/samba/smb.conf mode 700
+SetFileProperty /etc/samba mode 700

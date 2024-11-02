@@ -89,3 +89,13 @@ AddPackage vim # Vi Improved, a highly configurable, improved version of the vi 
 AddPackage xdg-user-dirs-gtk # Creates user dirs and asks to relocalize them
 AddPackage xorg-xdpyinfo # Display information utility for X
 AddPackage yay # Yet another yogurt. Pacman wrapper and AUR helper written in go.
+AddPackage arch-install-scripts # Scripts to aid in installing Arch Linux
+AddPackage less # A terminal based program for viewing text files
+AddPackage nss-mdns # glibc plugin providing host name resolution via mDNS
+AddPackage pipewire-alsa # Low-latency audio/video router and processor - ALSA configuration
+AddPackage pipewire-ffado # Low-latency audio/video router and processor - FireWire support
+AddPackage pipewire-libcamera # Low-latency audio/video router and processor - Libcamera support
+AddPackage pipewire-v4l2 # Low-latency audio/video router and processor - V4L2 interceptor
+AddPackage pipewire-zeroconf # Low-latency audio/video router and processor - Zeroconf support
+AddPackage rsync # A fast and versatile file copying tool for remote and local files
+AddPackage zram-generator # Systemd unit generator for zram devices

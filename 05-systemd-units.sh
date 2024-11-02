@@ -12,7 +12,6 @@ CreateLink /etc/systemd/system/multi-user.target.wants/winbind.service /usr/lib/
 CreateLink /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service /usr/lib/systemd/system/NetworkManager-wait-online.service
 CreateLink /etc/systemd/system/sockets.target.wants/cups.socket /usr/lib/systemd/system/cups.socket
 CreateLink /etc/systemd/system/sockets.target.wants/systemd-userdbd.socket /usr/lib/systemd/system/systemd-userdbd.socket
-CreateLink /etc/systemd/system/suspend.target /dev/null
 CreateLink /etc/systemd/system/sysinit.target.wants/systemd-boot-update.service /usr/lib/systemd/system/systemd-boot-update.service
 CreateLink /etc/systemd/system/timers.target.wants/pacman-offline-prepare.timer /usr/lib/systemd/system/pacman-offline-prepare.timer
 CreateLink /etc/systemd/system/timers.target.wants/pacman-offline-reboot.timer /usr/lib/systemd/system/pacman-offline-reboot.timer
@@ -24,3 +23,13 @@ CreateLink /etc/systemd/user/sockets.target.wants/gnome-keyring-daemon.socket /u
 CreateLink /etc/systemd/user/sockets.target.wants/p11-kit-server.socket /usr/lib/systemd/user/p11-kit-server.socket
 CreateLink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket /usr/lib/systemd/user/pipewire-pulse.socket
 CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
+CreateLink /etc/systemd/system/dbus-org.freedesktop.home1.service /usr/lib/systemd/system/systemd-homed.service
+CreateLink /etc/systemd/system/dbus-org.freedesktop.network1.service /usr/lib/systemd/system/systemd-networkd.service
+CreateLink /etc/systemd/system/dbus-org.freedesktop.resolve1.service /usr/lib/systemd/system/systemd-resolved.service
+CreateLink /etc/systemd/system/multi-user.target.wants/systemd-homed.service /usr/lib/systemd/system/systemd-homed.service
+CreateLink /etc/systemd/system/multi-user.target.wants/systemd-networkd.service /usr/lib/systemd/system/systemd-networkd.service
+CreateLink /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service /usr/lib/systemd/system/systemd-networkd-wait-online.service
+CreateLink /etc/systemd/system/sockets.target.wants/systemd-networkd.socket /usr/lib/systemd/system/systemd-networkd.socket
+CreateLink /etc/systemd/system/sysinit.target.wants/systemd-network-generator.service /usr/lib/systemd/system/systemd-network-generator.service
+CreateLink /etc/systemd/system/sysinit.target.wants/systemd-resolved.service /usr/lib/systemd/system/systemd-resolved.service
+CreateLink /etc/systemd/system/systemd-homed.service.wants/systemd-homed-activate.service /usr/lib/systemd/system/systemd-homed-activate.service
