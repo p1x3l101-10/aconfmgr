@@ -99,3 +99,4 @@ AddPackage pipewire-zeroconf # Low-latency audio/video router and processor - Ze
 AddPackage rsync # A fast and versatile file copying tool for remote and local files
 AddPackage zram-generator # Systemd unit generator for zram devices
 AddPackage archlinux-appstream-data
+AddPackage mkinitcpio-firmware
