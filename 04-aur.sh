@@ -1,5 +1,4 @@
 AddPackage --foreign brother-mfc-j6935dw # LPR and CUPS driver for the Brother MFC-J6935DW printer
-AddPackage --foreign locale-en_xx # A mixed international English locale with ISO and POSIX formats for cosmopolitan coders.
 AddPackage --foreign nautilus-admin-gtk4 # Extension for Nautilus to do administrative operations
 AddPackage --foreign nautilus-bluetooth # A simple Nautilus extension that adds a "Send via Bluetooth" entry to Nautilus' right-click menu
 AddPackage --foreign nautilus-checksums # Add checksums to Nautilus' properties window
