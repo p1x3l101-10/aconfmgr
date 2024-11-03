@@ -23,15 +23,6 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 
 EOF
 
-# Kernel cmdline
-CreateFile '/etc/kernel/cmdline' > /dev/null
-case "$HOSTNAME" in
-	'pixels-pc') aug set '/files/etc/kernel/cmdline/root' "UUID=5c786018-e988-453c-944b-08f283e2bbb1";;
-esac
-aug set '/files/etc/kernel/cmdline/rw'
-aug set '/files/etc/kernel/cmdline/loglevel' 4
-aug set '/files/etc/kernel/cmdline/init' /usr/lib/systemd/systemd
-
 cat > "$(CreateFile /etc/doas.conf 400)" <<EOF
 permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel
 permit nopass :wheel as root cmd /usr/bin/aconfmgr
