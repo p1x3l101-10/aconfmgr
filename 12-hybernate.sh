@@ -7,6 +7,3 @@ cat > "$(CreateFile /etc/systemd/sleep.conf.d/hybrid-sleep.conf)" << EOF
 [Sleep]
 MemorySleepMode=deep
 EOF
-
-CopyFile '/etc/systemd/system/suspend-sedation.service'
-CreateLink /etc/systemd/system/{sleep.target.wants,}suspend-sedation.service
