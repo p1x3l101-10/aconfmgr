@@ -45,6 +45,7 @@ IgnorePath '/boot'
 IgnorePath '/var/spool'
 IgnorePath '/var/db'
 IgnorePath '/usr/local/share/themes/default-pure/gnome-shell'
+IgnorePath '/usr/lib/modules/*' # Signing issues
 
 # Secret
 for passwd in group{,-} {g,}shadow{,-} passwd{,-} sub{gid,uid}{,-} samba/systemd ssh; do
