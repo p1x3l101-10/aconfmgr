@@ -14,7 +14,6 @@ CreateLink /etc/systemd/system/sockets.target.wants/cups.socket /usr/lib/systemd
 CreateLink /etc/systemd/system/sockets.target.wants/systemd-userdbd.socket /usr/lib/systemd/system/systemd-userdbd.socket
 CreateLink /etc/systemd/system/sysinit.target.wants/systemd-boot-update.service /usr/lib/systemd/system/systemd-boot-update.service
 CreateLink /etc/systemd/system/timers.target.wants/pacman-offline-prepare.timer /usr/lib/systemd/system/pacman-offline-prepare.timer
-CreateLink /etc/systemd/system/timers.target.wants/pacman-offline-reboot.timer /usr/lib/systemd/system/pacman-offline-reboot.timer
 CreateLink /etc/systemd/system/timers.target.wants/pamac-cleancache.timer /usr/lib/systemd/system/pamac-cleancache.timer
 CreateLink /etc/systemd/user/default.target.wants/xdg-user-dirs-update.service /usr/lib/systemd/user/xdg-user-dirs-update.service
 CreateLink /etc/systemd/user/pipewire-session-manager.service /usr/lib/systemd/user/wireplumber.service
