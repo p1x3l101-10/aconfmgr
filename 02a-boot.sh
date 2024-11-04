@@ -8,7 +8,8 @@ aug set '/files/etc/kernel/cmdline/rw'
 aug set '/files/etc/kernel/cmdline/loglevel' 4
 aug set '/files/etc/kernel/cmdline/init' /usr/lib/systemd/systemd
 
-cat > "$(CreateFile /etc/kernel/install.conf)" << EOF
+INSTALLKERNEL_CONF="$(CreateFile /etc/kernel/install.conf)"
+cat > "$INSTALLKERNEL_CONF" << EOF
 layout=uki
 initrd_generator=mkinitcpio
 uki_generator=ukify
