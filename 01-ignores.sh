@@ -11,6 +11,7 @@ IgnorePath '/etc/cups/subscriptions.conf'
 IgnorePath '/etc/cups/classes.conf'
 IgnorePath '/system-update'
 IgnorePath '/etc/system-update'
+IgnorePath '/etc/gdm-logo'
 
 # Generated automatically
 IGNORE_CFG=(
