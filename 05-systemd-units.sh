@@ -1,33 +1,35 @@
-CreateLink /etc/systemd/system/bluetooth.target.wants/bluetooth.service /usr/lib/systemd/system/bluetooth.service
-CreateLink /etc/systemd/system/dbus-org.bluez.service /usr/lib/systemd/system/bluetooth.service
-CreateLink /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service /usr/lib/systemd/system/NetworkManager-dispatcher.service
-CreateLink /etc/systemd/system/display-manager.service /usr/lib/systemd/system/gdm.service
 CreateLink /etc/systemd/system/getty.target.wants/getty@tty1.service /usr/lib/systemd/system/getty@.service
-CreateLink /etc/systemd/system/multi-user.target.wants/NetworkManager.service /usr/lib/systemd/system/NetworkManager.service
-CreateLink /etc/systemd/system/multi-user.target.wants/remote-fs.target /usr/lib/systemd/system/remote-fs.target
-CreateLink /etc/systemd/system/multi-user.target.wants/smb.service /usr/lib/systemd/system/smb.service
-CreateLink /etc/systemd/system/multi-user.target.wants/sshd.service /usr/lib/systemd/system/sshd.service
-CreateLink /etc/systemd/system/multi-user.target.wants/winbind.service /usr/lib/systemd/system/winbind.service
-CreateLink /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service /usr/lib/systemd/system/NetworkManager-wait-online.service
-CreateLink /etc/systemd/system/sockets.target.wants/cups.socket /usr/lib/systemd/system/cups.socket
-CreateLink /etc/systemd/system/sockets.target.wants/systemd-userdbd.socket /usr/lib/systemd/system/systemd-userdbd.socket
-CreateLink /etc/systemd/system/sysinit.target.wants/systemd-boot-update.service /usr/lib/systemd/system/systemd-boot-update.service
-CreateLink /etc/systemd/system/timers.target.wants/pacman-offline-prepare.timer /usr/lib/systemd/system/pacman-offline-prepare.timer
-CreateLink /etc/systemd/system/timers.target.wants/pamac-cleancache.timer /usr/lib/systemd/system/pamac-cleancache.timer
-CreateLink /etc/systemd/user/default.target.wants/xdg-user-dirs-update.service /usr/lib/systemd/user/xdg-user-dirs-update.service
-CreateLink /etc/systemd/user/pipewire-session-manager.service /usr/lib/systemd/user/wireplumber.service
-CreateLink /etc/systemd/user/pipewire.service.wants/wireplumber.service /usr/lib/systemd/user/wireplumber.service
-CreateLink /etc/systemd/user/sockets.target.wants/gnome-keyring-daemon.socket /usr/lib/systemd/user/gnome-keyring-daemon.socket
-CreateLink /etc/systemd/user/sockets.target.wants/p11-kit-server.socket /usr/lib/systemd/user/p11-kit-server.socket
-CreateLink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket /usr/lib/systemd/user/pipewire-pulse.socket
-CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
-CreateLink /etc/systemd/system/dbus-org.freedesktop.home1.service /usr/lib/systemd/system/systemd-homed.service
-CreateLink /etc/systemd/system/dbus-org.freedesktop.network1.service /usr/lib/systemd/system/systemd-networkd.service
-CreateLink /etc/systemd/system/dbus-org.freedesktop.resolve1.service /usr/lib/systemd/system/systemd-resolved.service
-CreateLink /etc/systemd/system/multi-user.target.wants/systemd-homed.service /usr/lib/systemd/system/systemd-homed.service
-CreateLink /etc/systemd/system/multi-user.target.wants/systemd-networkd.service /usr/lib/systemd/system/systemd-networkd.service
-CreateLink /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service /usr/lib/systemd/system/systemd-networkd-wait-online.service
-CreateLink /etc/systemd/system/sockets.target.wants/systemd-networkd.socket /usr/lib/systemd/system/systemd-networkd.socket
-CreateLink /etc/systemd/system/sysinit.target.wants/systemd-network-generator.service /usr/lib/systemd/system/systemd-network-generator.service
-CreateLink /etc/systemd/system/sysinit.target.wants/systemd-resolved.service /usr/lib/systemd/system/systemd-resolved.service
-CreateLink /etc/systemd/system/systemd-homed.service.wants/systemd-homed-activate.service /usr/lib/systemd/system/systemd-homed-activate.service
+
+for unit in {sshd,winbind,NetworkManager,systemd-homed,systemd-networkd}.service remote-fs.target; do
+    EnableUnit multi-user.target $unit
+done
+for unit in {cups,systemd-userdbd,systemd-networkd}.socket; do
+    EnableUnit sockets.target $unit
+done
+for unit in {systemd-boot-update,systemd-network-generator,systemd-resolved}.service; do
+    EnableUnit sysinit.target
+done
+for unit in {NetworkManager-wait-online,systemd-networkd-wait-online}.service; do
+    EnableUnit network-online.target $unit
+done
+
+EnableUnit systemd-homed.service systemd-homed-activate.service
+EnableUnit timers.target pacman-offline-prepare.timer
+EnableUnit bluetooth.{target,service}
+
+AliasUnit {display-manager,gdm}.service 
+AliasUnit dbus-org.bluez.service bluetooth.service
+AliasUnit dbus-org.freedesktop.nm-dispatcher.service NetworkManager-dispatcher.service
+AliasUnit dbus-org.freedesktop.home1.service systemd-homed.service
+AliasUnit dbus-org.freedesktop.network1.service systemd-networkd.service
+AliasUnit dbus-org.freedesktop.resolve1.service systemd-resolved.service
+
+# User things
+for unit in {gnome-keyring-daemon,p11-kit-server,pipewire-pulse,pipewire}.socket; do
+    EnableUnit sockets.target $unit user
+done
+
+EnableUnit default.target dg-user-dirs-update.service user
+EnableUnit pipewire.service wireplumber.service user
+
+AliasUnit pipewire-session-manager.service wireplumber.service user
