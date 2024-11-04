@@ -17,11 +17,13 @@ EOF
 cat > "$(CreateFile /etc/systemd/ukify.conf)" << EOF
 [UKI]
 Cmdline=@/etc/kernel/cmdline
-Splash=/usr/share/systemd/bootctl/splash-arch.bmp
 SecureBootSigningTool=sbsign
 SecureBootPrivateKey=/var/lib/sbctl/keys/db/db.key
 SecureBootCertificate=/var/lib/sbctl/keys/db/db.pem
 EOF
+#Splash=/usr/share/systemd/bootctl/splash-arch.bmp
+#EOF
+
 # Ensure mkinitcpio
 AddPackage mkinitcpio
 
