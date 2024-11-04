@@ -98,16 +98,5 @@ AddPackage pipewire-v4l2 # Low-latency audio/video router and processor - V4L2 i
 AddPackage pipewire-zeroconf # Low-latency audio/video router and processor - Zeroconf support
 AddPackage rsync # A fast and versatile file copying tool for remote and local files
 AddPackage zram-generator # Systemd unit generator for zram devices
-AddPackage archlinux-appstream-data
 #AddPackage mkinitcpio-firmware
 AddPackage mkosi
-AddPackage apt
-AddPackage debian-archive-keyring
-AddPackage dnf
-AddPackage edk2-ovmf
-AddPackage erofs-utils
-AddPackage mtools
-AddPackage qemu
-AddPackage swtpm
-AddPackage ubuntu-keyring
-AddPackage buildah

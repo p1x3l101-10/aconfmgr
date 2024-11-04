@@ -12,6 +12,7 @@ IgnorePath '/etc/cups/classes.conf'
 IgnorePath '/system-update'
 IgnorePath '/etc/system-update'
 IgnorePath '/etc/gdm-logo'
+IgnorePath '/etc/NetworkManager/system-connections'
 
 # Generated automatically
 IGNORE_CFG=(
