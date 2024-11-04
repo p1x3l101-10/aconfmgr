@@ -1,13 +1,13 @@
 CreateLink /etc/systemd/system/getty.target.wants/getty@tty1.service /usr/lib/systemd/system/getty@.service
 
-for unit in {sshd,winbind,NetworkManager,systemd-homed,systemd-networkd}.service remote-fs.target; do
+for unit in {sshd,winbind,NetworkManager,systemd-homed,systemd-networkd,smb}.service remote-fs.target; do
     EnableUnit multi-user.target $unit
 done
 for unit in {cups,systemd-userdbd,systemd-networkd}.socket; do
     EnableUnit sockets.target $unit
 done
 for unit in {systemd-boot-update,systemd-network-generator,systemd-resolved}.service; do
-    EnableUnit sysinit.target
+    EnableUnit sysinit.target $unit
 done
 for unit in {NetworkManager-wait-online,systemd-networkd-wait-online}.service; do
     EnableUnit network-online.target $unit
@@ -29,7 +29,7 @@ for unit in {gnome-keyring-daemon,p11-kit-server,pipewire-pulse,pipewire}.socket
     EnableUnit sockets.target $unit user
 done
 
-EnableUnit default.target dg-user-dirs-update.service user
+EnableUnit default.target xdg-user-dirs-update.service user
 EnableUnit pipewire.service wireplumber.service user
 
 AliasUnit pipewire-session-manager.service wireplumber.service user
