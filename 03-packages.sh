@@ -101,3 +101,13 @@ AddPackage zram-generator # Systemd unit generator for zram devices
 AddPackage archlinux-appstream-data
 #AddPackage mkinitcpio-firmware
 AddPackage mkosi
+AddPackage apt
+AddPackage debian-archive-keyring
+AddPackage dnf
+AddPackage edk2-ovmf
+AddPackage erofs-utils
+AddPackage mtools
+AddPackage qemu
+AddPackage swtpm
+AddPackage ubuntu-keyring
+AddPackage buildah
