@@ -64,7 +64,7 @@ After=pipewire.service
 BindsTo=pipewire.service
 
 [Service]
-ExecStart=/usr/bin/pipewire -c /home/<username>/.config/pipewire/input-filter-chain.conf
+ExecStart=/usr/bin/pipewire -c /etc/pipewire/input-filter-chain.conf
 Type=simple
 Restart=on-failure
 
